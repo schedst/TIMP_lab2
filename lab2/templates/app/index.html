@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+	</head>
+	<body>
+        <div>
+            <h1 style="text-align:center;">Bank's clients</h1>
+		<table class="table table-striped">
+                <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Last name</th>
+                  <th>First name</th>
+                  <th>Middle name</th>
+                  <th>Series of passport</th>
+                  <th>Passport number</th>
+                  <th>Birthday date</th>
+                  <th>Adress</th>
+                </tr>
+                </thead>
+		<tbody>
+                    {% for client in clients_list %}
+                        <tr>
+                            <th scope="row"">{{client.id}}</th>
+                            <td>{{client.last_name}}</td>
+                            <td>{{client.first_name}}</td>
+                            <td>{{client.middle_name}}</td>
+                            <td>{{client.series_of_passport}}</td>
+                            <td>{{client.passport_number}}</td>
+                            <td>{{client.birthday_date}}</td>
+                            <td>{{client.adress}}</td>
+                        </tr>
+                    {% endfor %}
+		</tbody>
+		<table class="table table-striped">
+		<h1 style="text-align:center;">Information about cells</h1>
+                <thead>
+                <tr>
+                  <th>Cell number</th>
+                  <th>Contract number</th>
+                  <th>Cell holder</th>
+                  <th>Worths in sell</th>
+                </tr>
+                </thead>
+		<tbody>
+                    {% for cell in cells_list %}
+                        <tr>
+                            <th scope="row"">{{cell.cell_number}}</th>
+                            <td>{{cell.contract_number}}</td>
+                            <td>{{cell.holder}}</td>
+			    <td>{{cell.worths}}</td>
+                        </tr>
+                    {% endfor %}
+		</tbody>
+		</table>
+		<h2 style="text-align:center;">Statistics</h2>
+                <h4>Profit by mounth: {{profit}} $</h4>
+                <h4>Max payment: {{max_payment}} $</h4>
+        </div>
+	</body>
+</html>
